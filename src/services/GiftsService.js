@@ -16,6 +16,7 @@ async submitGift(formData){
     try {
         let newGift = new Gift(formData)
         const res = await theApi.post('/gifts', newGift)
+        AppState.gifts.unshift(new Gift(res.data))
     } catch (error) {
         Pop.error(error)
         logger.error(error)
