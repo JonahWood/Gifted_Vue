@@ -1,7 +1,7 @@
 <template>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-2 bg-dark rounded-bottom">
+    <div class="col-3 gift-form bg-gradient">
       <form @submit.prevent="submitGift()">
                 <label for="tag" class="text-light mb-1">Tag</label>
                 <input v-model="editable.tag" type="text" class="form-control mb-3">
@@ -10,7 +10,7 @@
                 <button type="submit" class="btn btn-danger mt-5">Submit</button>
       </form>
     </div>
-    <div v-for="giftFromTheVFor in gifts" class="col-2">
+    <div v-for="giftFromTheVFor in gifts" class="col-3 bg-dark text-light p-1 acGift">
       <GiftCard :gift="giftFromTheVFor"/>
     </div>
   </div>
@@ -61,13 +61,16 @@ export default {
 
 <style scoped lang="scss">
 .gift-form{
-  background-color: color-change 10s infinite;
-  color: black;
-  text-shadow: 2px 2px 10px whitesmoke; 
+
+  background-color: #152d1997;
+  border-radius: 10px;
+  // text-shadow: 2px 2px 10px whitesmoke; 
 }
-@keyframes color-change {
-  0% { color: #ff00a6; }
-  50% { color: #26b821; }
-  100% { color: #ff00a6; }
+
+.acGift{
+  border-bottom: 1px solid #80808099;
+  border-left: 1px solid #80808099;
+  border-right: 1px solid #80808099;
 }
+
 </style>

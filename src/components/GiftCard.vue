@@ -30,7 +30,9 @@ export default {
             },
             async deleteGift(giftId){
                 try {
-                    await giftsService.deleteGift(giftId)
+                    if (await Pop.confirm("feeling gracious?")) {
+                        await giftsService.deleteGift(giftId)
+                }
                 } catch (error) {
                     Pop.error(error)
                     logger.error(error)
